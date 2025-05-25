@@ -6,9 +6,10 @@ import "slick-carousel/slick/slick-theme.css";
 import banner5 from "../../assets/banner5.jpg";
 import banner4 from "../../assets/banner4.jpg";
 import banner6 from "../../assets/banner6.jpg";
-import banner from "../../assets/banner.jpg"
+import banner from "../../assets/banner.jpg";
+
 const Banner = () => {
-  const images = [ banner4, banner6,banner];
+  const images = [banner4, banner6, banner];
 
   const settings = {
     dots: true,
@@ -17,16 +18,21 @@ const Banner = () => {
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 1000,
-    // Change image every second
+    autoplaySpeed: 2000, // slower transition looks better
+    arrows: false,
   };
 
   return (
-    <div className="w-full max-w-4xl mx-auto  justify-center items-center mt-20">
+    <div className="w-[90%] mx-[40px] mt-[60px] ">
+ {/* Removed max-w and mx-auto */}
       <Slider {...settings}>
         {images.map((img, index) => (
-          <div key={index}>
-            <img src={img} alt={`Banner ${index + 1}`} className="w-full h-full object-cover rounded-lg" />
+          <div key={index} className="px-10">
+            <img
+              src={img}
+              alt={`Banner ${index + 1}`}
+              className="w-full h-[300px] object-cover rounded-[15px] "
+            />
           </div>
         ))}
       </Slider>

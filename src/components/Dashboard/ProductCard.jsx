@@ -1,7 +1,7 @@
 import React from "react";
 import { Carousel } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-import banner1 from "../../assets/banner1.webp";
+import banner1 from "../../assets/UTREENA.png";
 
 const products = [
   { id: 1, name: "Organic Honey", description: "Pure and natural honey.", price: "₹499", image: banner1 },
@@ -29,7 +29,7 @@ const ProductCarousel = () => {
           <Carousel.Item key={index}>
             <div className="d-flex justify-content-center">
               {chunk.map((product) => (
-                <div key={product.id} className="card mx-3" style={{ width: "18rem" }}>
+                <div key={product.id} className="card mx-3" style={{ width: "15rem" }}>
                   <img src={product.image} className="card-img-top" alt={product.name} />
                   <div className="card-body text-center">
                     <h5 className="card-title">{product.name}</h5>
