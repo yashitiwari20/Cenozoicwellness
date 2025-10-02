@@ -1,6 +1,6 @@
 import React from "react";
 import logo from "../../assets/logo2.webp";
-
+import { Link } from "react-router-dom";
 const Header = () => {
   return (
     <header className="bg-[#add3bb] text-white p-4 md:p-6 lg:p-8 shadow-md w-full 
@@ -15,19 +15,22 @@ const Header = () => {
       {/* Navigation */}
       <nav className="mt-4 md:mt-0">
         <ul className="flex flex-col md:flex-row items-center gap-6 text-lg">
-          <li>
-            <a href="Home" className="hover:text-gray-100 transition-colors duration-200">Home</a>
-          </li>
-          <li>
-            <a href="About" className="hover:text-gray-100 transition-colors duration-200">About</a>
-          </li>
-          <li>
-            <a href="Services" className="hover:text-gray-100 transition-colors duration-200">Services</a>
-          </li>
-          <li>
-            <a href="Contact" className="hover:text-gray-100 transition-colors duration-200">Contact</a>
-          </li>
-        </ul>
+  <li>
+    <Link to="/Home" className="hover:text-gray-100 transition-colors duration-200">Home</Link>
+  </li>
+  <li>
+    <Link to="/About" className="hover:text-gray-100 transition-colors duration-200">About</Link>
+  </li>
+  <li>
+    <Link to="/Services" className="hover:text-gray-100 transition-colors duration-200">Services</Link>
+  </li>
+  <li>
+    <Link to="/Contact" className="hover:text-gray-100 transition-colors duration-200">Contact</Link>
+  </li>
+  <li>
+    <Link to="/DiscoverProducts" className="hover:text-gray-100 transition-colors duration-200">Products</Link>
+  </li>
+</ul>
       </nav>
 
     </header>
