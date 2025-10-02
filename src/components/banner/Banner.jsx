@@ -18,20 +18,20 @@ const Banner = () => {
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 2000, // slower transition looks better
+    autoplaySpeed: 2500,
     arrows: false,
+    adaptiveHeight: true, // adjusts height based on image
   };
 
   return (
-    <div className="w-[90%] mx-[40px] mt-[60px] ">
- {/* Removed max-w and mx-auto */}
+    <div className="w-full max-w-[1200px] mx-auto mt-[80px] px-4 md:px-6 lg:px-8">
       <Slider {...settings}>
         {images.map((img, index) => (
-          <div key={index} className="px-10">
+          <div key={index} className="px-2 md:px-4">
             <img
               src={img}
               alt={`Banner ${index + 1}`}
-              className="w-full h-[300px] object-cover rounded-[15px] "
+              className="w-full h-[200px] sm:h-[250px] md:h-[300px] lg:h-[400px] object-cover rounded-xl"
             />
           </div>
         ))}
