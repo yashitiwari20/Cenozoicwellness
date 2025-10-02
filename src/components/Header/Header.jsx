@@ -17,7 +17,10 @@ const Header = () => {
           alt="Cenozoic Wellness Logo"
           className="w-12 h-12 md:w-16 md:h-16 object-contain"
         />
-        <h1 className="text-xl md:text-2xl font-bold">Cenozoic Organic Wellness</h1>
+       <h1 className="text-lg sm:text-xl md:text-2xl font-bold">
+  Cenozoic Organic Wellness
+</h1>
+
       </div>
 
       {/* Desktop Navigation */}
@@ -32,12 +35,13 @@ const Header = () => {
           <li>
             <Link to="/Services" className="hover:text-gray-100 transition-colors duration-200">Services</Link>
           </li>
+           <li>
+            <Link to="/DiscoverProducts" className="hover:text-gray-100 transition-colors duration-200">Products</Link>
+          </li>
           <li>
             <Link to="/Contact" className="hover:text-gray-100 transition-colors duration-200">Contact</Link>
           </li>
-          <li>
-            <Link to="/DiscoverProducts" className="hover:text-gray-100 transition-colors duration-200">Products</Link>
-          </li>
+         
         </ul>
       </nav>
 
@@ -80,6 +84,15 @@ const Header = () => {
                 Services
               </Link>
             </li>
+             <li>
+              <Link
+                to="/DiscoverProducts"
+                className="hover:text-gray-200 transition-colors duration-200"
+                onClick={() => setMenuOpen(false)}
+              >
+                Products
+              </Link>
+            </li>
             <li>
               <Link
                 to="/Contact"
@@ -89,15 +102,7 @@ const Header = () => {
                 Contact
               </Link>
             </li>
-            <li>
-              <Link
-                to="/DiscoverProducts"
-                className="hover:text-gray-200 transition-colors duration-200"
-                onClick={() => setMenuOpen(false)}
-              >
-                Products
-              </Link>
-            </li>
+           
           </ul>
         </div>
       )}
