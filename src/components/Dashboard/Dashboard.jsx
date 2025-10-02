@@ -148,26 +148,7 @@ const Dashboard = () => {
         </motion.section>
 
         {/* Dosha Quiz Section */}
-        <motion.section
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.7 }}
-          viewport={{ once: true }}
-          whileHover={{ scale: 1.06 }}
-          className="mt-12 bg-white shadow-lg rounded-lg p-8 max-w-5xl"
-        >
-          <h2 className="text-3xl font-bold text-green-700 mb-4">
-            Discover Your Dosha
-          </h2>
-          <p className="text-gray-700 text-lg leading-relaxed mb-6">
-            Understanding your Dosha (Vata, Pitta, Kapha) is key to Ayurvedic
-            wellness. Take our quick quiz to learn about your unique
-            constitution and receive personalized recommendations.
-          </p>
-          <button className="bg-green-500 hover:bg-green-600 text-black font-semibold py-3 px-6 rounded-full">
-            Take the Dosha Quiz
-          </button>
-        </motion.section>
+       
       </main>
 
       <Footer />
