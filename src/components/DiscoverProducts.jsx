@@ -1,34 +1,42 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { motion } from "framer-motion";
 import Header from "./Header/Header";
-import axios from 'axios';
+
+// Import images
+import teaImg from "../assets/banner4.jpg";
+import honeyImg from "../assets/banner5.jpg";
+import neemPackImg from "../assets/banner6.jpg";
+
+// Import videos
+import video1 from "../assets/product.mp4";
+import video2 from "../assets/product2.mp4";
+import video3 from "../assets/product3.mp4";
+
+// Swiper Imports
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, Autoplay } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 
 const DiscoverProducts = () => {
-  const [products, setProducts] = useState([]);
-  const [videos, setVideos] = useState([]);
+  const products = [
+    { _id: "1", name: "Ayurvedic Herbal Tea", price: "₹250", image: teaImg },
+    { _id: "2", name: "Organic Honey", price: "₹350", image: honeyImg },
+    { _id: "3", name: "Neem Face Pack", price: "₹180", image: neemPackImg },
+  ];
 
-  // Fetch products and videos from the API
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const productsResponse = await axios.get('http://localhost:3000/api/products');
-        setProducts(productsResponse.data);
-
-        const videosResponse = await axios.get('http://localhost:3000/api/videos');
-        setVideos(videosResponse.data);
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
-    };
-
-    fetchData();
-  }, []);
+  const videos = [
+    { id: "v1", title: "Ayurvedic Herbal Tea Benefits", src: video1 },
+    { id: "v2", title: "Why Choose Organic Honey?", src: video2 },
+    { id: "v3", title: "Neem Pack for Skin", src: video3 },
+  ];
 
   return (
     <div>
       <Header />
-      <div className="w-full min-h-screen bg-green-50 px-6 py-10 mt-20">
-        
+      <div className="w-full min-h-screen bg-green-50 px-6 py-10 pb-20 mt-20">
+
         {/* Hero Section */}
         <motion.section
           initial={{ opacity: 0, y: 50 }}
@@ -49,9 +57,13 @@ const DiscoverProducts = () => {
             <motion.div
               key={product._id}
               whileHover={{ scale: 1.05 }}
-              className="bg-white p-4 rounded-lg shadow-md text-center"
+              className="bg-white p-4 rounded-2xl shadow-lg text-center hover:shadow-xl transition"
             >
-              <img src={product.image} alt={product.name} className="w-full h-40 object-cover rounded-md mb-4" />
+              <img
+                src={product.image}
+                alt={product.name}
+                className="w-full h-40 object-cover rounded-md mb-4"
+              />
               <h3 className="text-lg font-semibold text-green-900">{product.name}</h3>
               <p className="text-green-700 font-bold">{product.price}</p>
               <button className="mt-3 px-6 py-2 bg-green-700 text-white rounded-full hover:bg-green-800">
@@ -61,7 +73,7 @@ const DiscoverProducts = () => {
           ))}
         </div>
 
-        {/* Product Videos Section */}
+        {/* Product Videos Section with Carousel */}
         <motion.section
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -69,23 +81,44 @@ const DiscoverProducts = () => {
           viewport={{ once: true }}
           className="max-w-6xl mx-auto text-center mt-16"
         >
-          <h2 className="text-3xl font-bold text-green-900 mb-6">Watch Our Product Videos</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <h2 className="text-3xl font-bold text-green-900 mb-8">Watch Our Product Reels</h2>
+
+          <Swiper
+            modules={[Navigation, Pagination, Autoplay]}
+            spaceBetween={20}
+            slidesPerView={1}
+            navigation
+            pagination={{ clickable: true }}
+            autoplay={{ delay: 4000 }}
+            breakpoints={{
+              640: { slidesPerView: 1 }, // mobile
+              768: { slidesPerView: 2 }, // tablet
+              1024: { slidesPerView: 3 }, // desktop
+            }}
+            className="pb-10 pt-10"
+          >
             {videos.map((video) => (
-              <motion.div key={video.id} whileHover={{ scale: 1.03 }} className="bg-white rounded-lg shadow-lg p-4">
-                <h3 className="text-lg font-semibold text-green-900 mb-3">{video.title}</h3>
-                <iframe
-                  width="100%"
-                  height="250"
-                  src={video.url}
-                  title={video.title}
-                  frameBorder="0"
-                  allowFullScreen
-                  className="rounded-lg"
-                ></iframe>
-              </motion.div>
+              <SwiperSlide key={video.id}>
+                <motion.div
+                  whileHover={{ scale: 1.02 }}
+                  className="bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col items-center justify-center p-3 hover:shadow-2xl transition h-[500px] w-[280px] mx-auto"
+                >
+                  <h3 className="text-sm font-semibold text-green-900 py-4">
+                    {video.title}
+                  </h3>
+                  <video
+                    controls
+                    playsInline
+                    muted
+                    className="rounded-xl w-full h-full object-cover aspect-[9/16]"
+                  >
+                    <source src={video.src} type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+                </motion.div>
+              </SwiperSlide>
             ))}
-          </div>
+          </Swiper>
         </motion.section>
       </div>
     </div>

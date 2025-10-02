@@ -1,5 +1,8 @@
 
 @import "tailwindcss";
+@import "swiper/css";
+@import "swiper/css/navigation";
+@import "swiper/css/pagination";
 
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -70,3 +73,4 @@ button:focus-visible {
     background-color: #538d6f;
   }
 }
+
