@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Menu, X } from "lucide-react";
 import logo from "../../assets/logo2.webp";
-import { HashLink } from 'react-router-hash-link';
+import { Link } from "react-router-dom";
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -18,16 +18,24 @@ const Header = () => {
         />
         <h1 className="text-xl md:text-2xl font-bold">Cenozoic Organic Wellness</h1>
       </div>
-
-      {/* Desktop Navigation */}
-      <nav className="hidden md:block">
-        <ul className="flex gap-8 text-lg font-medium">
-          <li><HashLink smooth to="/#home" className="hover:text-gray-100">Home</HashLink></li>
-<li><HashLink smooth to="/#about" className="hover:text-gray-100">About</HashLink></li>
-<li><HashLink smooth to="/#DiscoverProducts" className="hover:text-gray-100">Products</HashLink></li>
-<li><HashLink smooth to="/#services" className="hover:text-gray-100">Services</HashLink></li>
-<li><HashLink smooth to="/#contact" className="hover:text-gray-100">Contact</HashLink></li>
-        </ul>
+      <nav className="mt-4 md:mt-0">
+        <ul className="flex flex-col md:flex-row items-center gap-6 text-lg">
+  <li>
+    <Link to="/Home" className="hover:text-gray-100 transition-colors duration-200">Home</Link>
+  </li>
+  <li>
+    <Link to="/About" className="hover:text-gray-100 transition-colors duration-200">About</Link>
+  </li>
+  <li>
+    <Link to="/Services" className="hover:text-gray-100 transition-colors duration-200">Services</Link>
+  </li>
+  <li>
+    <Link to="/Contact" className="hover:text-gray-100 transition-colors duration-200">Contact</Link>
+  </li>
+  <li>
+    <Link to="/DiscoverProducts" className="hover:text-gray-100 transition-colors duration-200">Products</Link>
+  </li>
+</ul>
       </nav>
 
       {/* Mobile Menu Button */}
