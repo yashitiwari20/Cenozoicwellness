@@ -23,13 +23,13 @@ const DiscoverProducts = () => {
   const products = [
     { _id: "1", name: "Ayurvedic Herbal Tea", price: "₹250", image: teaImg },
     { _id: "2", name: "Organic Honey", price: "₹350", image: honeyImg },
-    { _id: "3", name: "Neem Face Pack", price: "₹180", image: neemPackImg },
+    { _id: "3", name: "Rose Water", price: "₹180", image: neemPackImg },
   ];
 
   const videos = [
     { id: "v1", title: "Ayurvedic Herbal Tea Benefits", src: video1 },
     { id: "v2", title: "Why Choose Organic Honey?", src: video2 },
-    { id: "v3", title: "Neem Pack for Skin", src: video3 },
+    { id: "v3", title: "Rose Water", src: video3 },
   ];
 
   return (
@@ -66,9 +66,9 @@ const DiscoverProducts = () => {
               />
               <h3 className="text-lg font-semibold text-green-900">{product.name}</h3>
               <p className="text-green-700 font-bold">{product.price}</p>
-              <button className="mt-3 px-6 py-2 bg-green-700 text-white rounded-full hover:bg-green-800">
+              {/* <button className="mt-3 px-6 py-2 bg-green-700 text-white rounded-full hover:bg-green-800">
                 Buy Now
-              </button>
+              </button> */}
             </motion.div>
           ))}
         </div>
@@ -95,7 +95,7 @@ const DiscoverProducts = () => {
               768: { slidesPerView: 2 }, // tablet
               1024: { slidesPerView: 3 }, // desktop
             }}
-            className="pb-10 pt-10"
+            className="pb-12 pt-10"
           >
             {videos.map((video) => (
               <SwiperSlide key={video.id}>
@@ -103,18 +103,19 @@ const DiscoverProducts = () => {
                   whileHover={{ scale: 1.02 }}
                   className="bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col items-center justify-center p-3 hover:shadow-2xl transition h-[500px] w-[280px] mx-auto"
                 >
-                  <h3 className="text-sm font-semibold text-green-900 py-4">
-                    {video.title}
-                  </h3>
+                  
                   <video
                     controls
                     playsInline
                     muted
-                    className="rounded-xl w-full h-full object-cover aspect-[9/16]"
+                    className="rounded-xl w-full h-full object-cover aspect-[9/16] py-3"
                   >
                     <source src={video.src} type="video/mp4" />
                     Your browser does not support the video tag.
                   </video>
+                  <h3 className="text-sm font-semibold text-green-900 pb-2">
+                    {video.title}
+                  </h3>
                 </motion.div>
               </SwiperSlide>
             ))}

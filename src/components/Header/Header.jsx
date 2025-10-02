@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Menu, X } from "lucide-react";
 import logo from "../../assets/logo2.webp";
 import { Link } from "react-router-dom";
+
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -18,24 +19,26 @@ const Header = () => {
         />
         <h1 className="text-xl md:text-2xl font-bold">Cenozoic Organic Wellness</h1>
       </div>
-      <nav className="mt-4 md:mt-0">
-        <ul className="flex flex-col md:flex-row items-center gap-6 text-lg">
-  <li>
-    <Link to="/Home" className="hover:text-gray-100 transition-colors duration-200">Home</Link>
-  </li>
-  <li>
-    <Link to="/About" className="hover:text-gray-100 transition-colors duration-200">About</Link>
-  </li>
-  <li>
-    <Link to="/Services" className="hover:text-gray-100 transition-colors duration-200">Services</Link>
-  </li>
-  <li>
-    <Link to="/Contact" className="hover:text-gray-100 transition-colors duration-200">Contact</Link>
-  </li>
-  <li>
-    <Link to="/DiscoverProducts" className="hover:text-gray-100 transition-colors duration-200">Products</Link>
-  </li>
-</ul>
+
+      {/* Desktop Navigation */}
+      <nav className="hidden md:block">
+        <ul className="flex items-center gap-6 text-lg">
+          <li>
+            <Link to="/Home" className="hover:text-gray-100 transition-colors duration-200">Home</Link>
+          </li>
+          <li>
+            <Link to="/About" className="hover:text-gray-100 transition-colors duration-200">About</Link>
+          </li>
+          <li>
+            <Link to="/Services" className="hover:text-gray-100 transition-colors duration-200">Services</Link>
+          </li>
+          <li>
+            <Link to="/Contact" className="hover:text-gray-100 transition-colors duration-200">Contact</Link>
+          </li>
+          <li>
+            <Link to="/DiscoverProducts" className="hover:text-gray-100 transition-colors duration-200">Products</Link>
+          </li>
+        </ul>
       </nav>
 
       {/* Mobile Menu Button */}
@@ -47,50 +50,57 @@ const Header = () => {
       </button>
 
       {/* Mobile Navigation Dropdown */}
-     {/* Mobile Navigation Dropdown */}
-{menuOpen && (
-  <div className="absolute top-full left-0 w-full bg-[#add3bb] text-white shadow-lg md:hidden z-40">
-    <ul className="flex flex-col items-center gap-6 py-6 text-lg font-medium">
-      <li>
-        <a
-          href="Home"
-          className="hover:text-gray-200 transition-colors duration-200"
-          onClick={() => setMenuOpen(false)}
-        >
-          Home
-        </a>
-      </li>
-      <li>
-        <a
-          href="About"
-          className="hover:text-gray-200 transition-colors duration-200"
-          onClick={() => setMenuOpen(false)}
-        >
-          About
-        </a>
-      </li>
-      <li>
-        <a
-          href="Services"
-          className="hover:text-gray-200 transition-colors duration-200"
-          onClick={() => setMenuOpen(false)}
-        >
-          Services
-        </a>
-      </li>
-      <li>
-        <a
-          href="Contact"
-          className="hover:text-gray-200 transition-colors duration-200"
-          onClick={() => setMenuOpen(false)}
-        >
-          Contact
-        </a>
-      </li>
-    </ul>
-  </div>
-)}
-
+      {menuOpen && (
+        <div className="absolute top-full left-0 w-full bg-[#add3bb] text-white shadow-lg md:hidden z-40">
+          <ul className="flex flex-col items-center gap-6 py-6 text-lg font-medium">
+            <li>
+              <Link
+                to="/Home"
+                className="hover:text-gray-200 transition-colors duration-200"
+                onClick={() => setMenuOpen(false)}
+              >
+                Home
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/About"
+                className="hover:text-gray-200 transition-colors duration-200"
+                onClick={() => setMenuOpen(false)}
+              >
+                About
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/Services"
+                className="hover:text-gray-200 transition-colors duration-200"
+                onClick={() => setMenuOpen(false)}
+              >
+                Services
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/Contact"
+                className="hover:text-gray-200 transition-colors duration-200"
+                onClick={() => setMenuOpen(false)}
+              >
+                Contact
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/DiscoverProducts"
+                className="hover:text-gray-200 transition-colors duration-200"
+                onClick={() => setMenuOpen(false)}
+              >
+                Products
+              </Link>
+            </li>
+          </ul>
+        </div>
+      )}
     </header>
   );
 };
