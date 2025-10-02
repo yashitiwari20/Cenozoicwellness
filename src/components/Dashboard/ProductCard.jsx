@@ -35,7 +35,7 @@ const ProductCarousel = () => {
                     <h5 className="card-title">{product.name}</h5>
                     <p className="card-text">{product.description}</p>
                     <p className="text-success font-weight-bold">{product.price}</p>
-                    <button className="btn btn-success">Add to Cart</button>
+                    {/* <button className="btn btn-success">Add to Cart</button> */}
                   </div>
                 </div>
               ))}
