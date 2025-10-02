@@ -15,7 +15,7 @@ const AboutSection = () => {
         viewport={{ once: true }}
         className="w-full max-w-6xl relative rounded-xl overflow-hidden h-64 mt-20 md:h-80 mb-4"
       >
-                <div className="relative w-full h-[400px]"> 
+                <div className="relative w-full h-[200px]"> 
           <img
             src={banner1}
             alt="Ayurvedic herbs and ingredients"

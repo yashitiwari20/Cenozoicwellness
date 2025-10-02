@@ -33,9 +33,9 @@ const Services = () => {
       
 
   return (
-    <div>
+    <div >
     <Header/>
-    <div className="bg-gray-50 py-12 px-6 md:px-16 flex flex-col gap-10 items-center mt-30" id="services">
+    <div className="bg-gray-50 py-12 px-6 md:px-16 flex flex-col gap-10 items-center pt-30" id="services">
         
       <motion.h2
         initial={{ opacity: 0, y: 30 }}

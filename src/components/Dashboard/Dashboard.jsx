@@ -12,7 +12,7 @@ const Dashboard = () => {
       <Header />
 
       {/* Banner Section */}
-      <div className="mt-24 px-4 sm:px-6 lg:px-8">
+      <div className="mt-10 px-4 sm:px-6 lg:px-8">
         <Banner />
       </div>
 
