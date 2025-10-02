@@ -15,92 +15,69 @@ const Header = () => {
         <img
           src={logo}
           alt="Cenozoic Wellness Logo"
-          className="w-12 h-12 md:w-16 md:h-16 object-contain"
+          className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 object-contain transition-all duration-300"
         />
-        <h1 className="text-xl md:text-2xl font-bold">Cenozoic Organic Wellness</h1>
+        <h1 className="text-base sm:text-lg md:text-2xl font-bold truncate">
+          Cenozoic Organic Wellness
+        </h1>
       </div>
 
       {/* Desktop Navigation */}
-      <nav className="hidden md:block">
-        <ul className="flex items-center gap-6 text-lg">
-          <li>
-            <Link to="/Home" className="hover:text-gray-100 transition-colors duration-200">Home</Link>
-          </li>
-          <li>
-            <Link to="/About" className="hover:text-gray-100 transition-colors duration-200">About</Link>
-          </li>
-          <li>
-            <Link to="/Services" className="hover:text-gray-100 transition-colors duration-200">Services</Link>
-          </li>
-          <li>
-            <Link to="/Contact" className="hover:text-gray-100 transition-colors duration-200">Contact</Link>
-          </li>
-          <li>
-            <Link to="/DiscoverProducts" className="hover:text-gray-100 transition-colors duration-200">Products</Link>
-          </li>
-        </ul>
-      </nav>
+    {/* Desktop Navigation */}
+<nav className="hidden md:block">
+  <ul className="flex items-center gap-6 text-lg">
+    <li>
+      <Link to="/Home" className="hover:text-gray-100 transition-colors duration-200">Home</Link>
+    </li>
+    <li>
+      <Link to="/About" className="hover:text-gray-100 transition-colors duration-200">About</Link>
+    </li>
+    <li>
+      <Link to="/Services" className="hover:text-gray-100 transition-colors duration-200">Services</Link>
+    </li>
+    <li>
+      <Link to="/DiscoverProducts" className="hover:text-gray-100 transition-colors duration-200">Products</Link>
+    </li>
+    <li>
+      <Link to="/Contact" className="hover:text-gray-100 transition-colors duration-200">Contact</Link>
+    </li>
+  </ul>
+</nav>
+
+
 
       {/* Mobile Menu Button */}
       <button
-        className="md:hidden flex items-center justify-center p-2 rounded-lg bg-white text-green-900"
+        className="md:hidden flex items-center justify-center p-2 rounded-lg bg-white text-green-900 transition-transform transform hover:scale-110"
         onClick={() => setMenuOpen(!menuOpen)}
       >
         {menuOpen ? <X size={24} /> : <Menu size={24} />}
       </button>
 
       {/* Mobile Navigation Dropdown */}
-      {menuOpen && (
-        <div className="absolute top-full left-0 w-full bg-[#add3bb] text-white shadow-lg md:hidden z-40">
-          <ul className="flex flex-col items-center gap-6 py-6 text-lg font-medium">
-            <li>
-              <Link
-                to="/Home"
-                className="hover:text-gray-200 transition-colors duration-200"
-                onClick={() => setMenuOpen(false)}
-              >
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/About"
-                className="hover:text-gray-200 transition-colors duration-200"
-                onClick={() => setMenuOpen(false)}
-              >
-                About
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/Services"
-                className="hover:text-gray-200 transition-colors duration-200"
-                onClick={() => setMenuOpen(false)}
-              >
-                Services
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/Contact"
-                className="hover:text-gray-200 transition-colors duration-200"
-                onClick={() => setMenuOpen(false)}
-              >
-                Contact
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/DiscoverProducts"
-                className="hover:text-gray-200 transition-colors duration-200"
-                onClick={() => setMenuOpen(false)}
-              >
-                Products
-              </Link>
-            </li>
-          </ul>
-        </div>
-      )}
+     {/* Mobile Navigation Dropdown */}
+{menuOpen && (
+  <div className="absolute top-full left-0 w-full bg-[#add3bb] text-white shadow-lg md:hidden z-40 transition-all duration-300">
+    <ul className="flex flex-col items-center gap-4 py-6 text-lg font-medium">
+      <li>
+        <Link to="/Home" className="hover:text-gray-200 transition-colors duration-200" onClick={() => setMenuOpen(false)}>Home</Link>
+      </li>
+      <li>
+        <Link to="/About" className="hover:text-gray-200 transition-colors duration-200" onClick={() => setMenuOpen(false)}>About</Link>
+      </li>
+      <li>
+        <Link to="/Services" className="hover:text-gray-200 transition-colors duration-200" onClick={() => setMenuOpen(false)}>Services</Link>
+      </li>
+      <li>
+        <Link to="/DiscoverProducts" className="hover:text-gray-200 transition-colors duration-200" onClick={() => setMenuOpen(false)}>Products</Link>
+      </li>
+      <li>
+        <Link to="/Contact" className="hover:text-gray-200 transition-colors duration-200" onClick={() => setMenuOpen(false)}>Contact</Link>
+      </li>
+    </ul>
+  </div>
+)}
+
     </header>
   );
 };

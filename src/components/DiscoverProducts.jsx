@@ -33,7 +33,7 @@ const DiscoverProducts = () => {
   ];
 
   return (
-    <div>
+    <div className="bg-green-50 py-16 px-6 md:px-24">
       <Header />
       <div className="w-full min-h-screen bg-green-50 px-6 py-10 pb-20 mt-20">
 
